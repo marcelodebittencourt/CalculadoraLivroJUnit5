@@ -29,4 +29,9 @@ class CalculadoraTeste {
 		assertEquals(1, c.subtracao(5, 4), "Subtracao positiva com erro");
 	}
 	
+	@DisplayName("Teste de Soma com números negativos")
+	@Test
+	void testeSomaComNumerosNegativos() {
+		assertEquals(-9, c.soma(-2, -7), "Soma de números de negativos com resultado diferente do esperado");
+	}
 }
