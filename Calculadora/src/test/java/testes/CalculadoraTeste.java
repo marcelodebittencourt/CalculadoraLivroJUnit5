@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -24,18 +25,21 @@ class CalculadoraTeste {
 
 	@DisplayName("Teste de Soma com Resultado Positivo")
 	@Test
+	@Order(1)
 	void testeSomaResultadoPositivo() {
 		assertEquals(4, c.soma(1, 3), "Soma positiva com erro");
 	}
 	
 	@DisplayName("Teste de Subtracao com Resultado Positivo")
 	@Test
+	@Order(2)
 	void testeSubtracaoResultadoPositivo() {
 		assertEquals(1, c.subtracao(5, 4), "Subtracao positiva com erro");
 	}
 	
 	@DisplayName("Teste de Subtracao com Resultado Negativo")
 	@Test
+	@Order(3)
 	void testeSubtracaoResultadoNegativo() {
 		//assertEquals(-1, c.subtracao(4, 5), "Substração com Resultado Negativo com resultado diferente do esperado");
 		assertThat(c.subtracao(4, 5), is(equalTo(-1)));
@@ -44,6 +48,7 @@ class CalculadoraTeste {
 	@DisplayName("Teste de Soma com números negativos")
 	@Test
 	@Disabled
+	@Order(4)
 	void testeSomaComNumerosNegativos() {
 		assertEquals(-9, c.soma(-2, -7), "Soma de números de negativos com resultado diferente do esperado");
 	}
