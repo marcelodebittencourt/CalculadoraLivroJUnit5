@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import calculadora.Calculadora;
 
 class CalculadoraTeste {
@@ -29,6 +33,13 @@ class CalculadoraTeste {
 	void testeSubtracaoResultadoPositivo() {
 		assertEquals(1, c.subtracao(5, 4), "Subtracao positiva com erro");
 	}
+	
+	@DisplayName("Teste de Subtracao com Resultado Negativo")
+	@Test
+	void testeSubtracaoResultadoNegativo() {
+		//assertEquals(-1, c.subtracao(4, 5), "Substração com Resultado Negativo com resultado diferente do esperado");
+		assertThat(c.subtracao(4, 5), is(equalTo(-1)));
+	}	
 	
 	@DisplayName("Teste de Soma com números negativos")
 	@Test
