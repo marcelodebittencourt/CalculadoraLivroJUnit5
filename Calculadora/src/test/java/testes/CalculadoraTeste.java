@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -40,6 +41,7 @@ class CalculadoraTeste {
 	@DisplayName("Teste de Subtracao com Resultado Negativo")
 	@Test
 	@Order(3)
+	@RepeatedTest(5)
 	void testeSubtracaoResultadoNegativo() {
 		//assertEquals(-1, c.subtracao(4, 5), "Substração com Resultado Negativo com resultado diferente do esperado");
 		assertThat(c.subtracao(4, 5), is(equalTo(-1)));
