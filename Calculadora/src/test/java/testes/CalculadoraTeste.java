@@ -8,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -54,4 +56,15 @@ class CalculadoraTeste {
 	void testeSomaComNumerosNegativos() {
 		assertEquals(-9, c.soma(-2, -7), "Soma de números de negativos com resultado diferente do esperado");
 	}
+	
+	@ParameterizedTest
+	@ValueSource(ints = {Integer.MIN_VALUE, 1, 2, 3, 10, Integer.MAX_VALUE})
+	@Order(5)
+	void testeSubstracaoComResultadoZero(int number) {
+	    assertThat(c.subtracao(number, number), is(equalTo(0)));
+	}
+	
+	
+	
+	
 }
