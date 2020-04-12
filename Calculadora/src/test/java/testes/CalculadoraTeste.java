@@ -3,6 +3,7 @@ package testes;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +32,7 @@ class CalculadoraTeste {
 	
 	@DisplayName("Teste de Soma com números negativos")
 	@Test
+	@Disabled
 	void testeSomaComNumerosNegativos() {
 		assertEquals(-9, c.soma(-2, -7), "Soma de números de negativos com resultado diferente do esperado");
 	}
