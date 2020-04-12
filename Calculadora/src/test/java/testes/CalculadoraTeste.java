@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -64,7 +65,12 @@ class CalculadoraTeste {
 	    assertThat(c.subtracao(number, number), is(equalTo(0)));
 	}
 	
-	
+	@ParameterizedTest
+	@CsvSource({"0,0", "10,0"})
+	@Order(6)
+	void testeSubstracaoComResultadoZeroCvs(int entrada, int saida) {
+	    assertThat(c.subtracao(entrada, entrada), is(equalTo(saida)));
+	}	
 	
 	
 }
