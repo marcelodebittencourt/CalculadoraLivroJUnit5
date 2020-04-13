@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -60,6 +61,7 @@ class CalculadoraTeste {
 	
 	@ParameterizedTest
 	@ValueSource(ints = {Integer.MIN_VALUE, 1, 2, 3, 10, Integer.MAX_VALUE})
+	@Disabled
 	@Order(5)
 	void testeSubstracaoComResultadoZero(int number) {
 	    assertThat(c.subtracao(number, number), is(equalTo(0)));
@@ -67,10 +69,19 @@ class CalculadoraTeste {
 	
 	@ParameterizedTest
 	@CsvSource({"0,0", "10,0"})
+	@Disabled
 	@Order(6)
 	void testeSubstracaoComResultadoZeroCvs(int entrada, int saida) {
 	    assertThat(c.subtracao(entrada, entrada), is(equalTo(saida)));
 	}	
-	
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/dados.csv", numLinesToSkip = 1, delimiter = ';' )
+	@Order(7)
+	void testeSubstracaoComResultadoZeroCvsFile(String entradaString, String saidaString) {
+		int entrada = Integer.parseInt(entradaString);
+		int saida = Integer.parseInt(saidaString);
+	    assertThat(c.subtracao(entrada, entrada), is(equalTo(saida)));
+	}
 	
 }
