@@ -48,19 +48,19 @@ class CalculadoraTeste {
 	@DisplayName("Teste de Subtracao com Resultado Negativo")
 	@Test
 	@Order(3)
-	@RepeatedTest(5)
+	//@RepeatedTest(5)
 	@Tag("subtracao")
 	void testeSubtracaoResultadoNegativo() {
-		//assertEquals(-1, c.subtracao(4, 5), "Substração com Resultado Negativo com resultado diferente do esperado");
+		//assertEquals(-1, c.subtracao(4, 5), "Substracao com Resultado Negativo com resultado diferente do esperado");
 		assertThat(c.subtracao(4, 5), is(equalTo(-1)));
 	}	
 	
-	@DisplayName("Teste de Soma com números negativos")
+	@DisplayName("Teste de Soma com nÃºmeros negativos")
 	@Test
 	@Order(4)
 	@Tag("soma")
 	void testeSomaComNumerosNegativos() {
-		assertEquals(-9, c.soma(-2, -7), "Soma de números de negativos com resultado diferente do esperado");
+		assertEquals(-9, c.soma(-2, -7), "Soma de nÃºmeros de negativos com resultado diferente do esperado");
 	}
 	
 	@ParameterizedTest
